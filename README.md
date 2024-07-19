@@ -1,6 +1,6 @@
 # Object parser
 
-A small utility library for parsing object fields. ˝
+A small library for parsing objects.
 
 ```ts
 import { ObjectParser } from "@pilcrowjs/object-parser";
