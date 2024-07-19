@@ -79,7 +79,7 @@ export class ObjectParser {
 		return value;
 	}
 
-	public getArray(...path: string[]): object {
+	public getArray(...path: string[]): unknown[] {
 		const value = this.get(...path);
 		if (!Array.isArray(value)) {
 			throw new Error(`Value in path ${path.join(".")} is not a object`);

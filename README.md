@@ -64,7 +64,7 @@ class ObjectParser {
 	getBoolean(...path: string[]): boolean;
 	getBigInt(...path: string[]): bigint;
 	getObject(...path: string[]): object;
-	getArray(...path: string[]): object;
+	getArray(...path: string[]): unknown[];
 	isNull(...path: string[]): boolean;
 	isUndefined(...path: string[]): boolean;
 	createParser(...path: string[]): ObjectParser;
