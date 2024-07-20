@@ -2,7 +2,7 @@
 	"name": "@pilcrowjs/object-parser",
 	"description": "A small utility library for parsing object fields.",
 	"type": "module",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"module": "dist/index.js",
@@ -23,9 +23,7 @@
 		"@typescript-eslint/parser": "^6.7.5",
 		"eslint": "^8.51.0",
 		"prettier": "^3.0.3",
-		"typescript": "^5.2.2"
-	},
-	"dependencies": {
+		"typescript": "^5.2.2",
 		"vitest": "^2.0.3"
 	}
 }
