@@ -14,7 +14,7 @@ if (parser.has("error")) {
 } else {
 	const userId = parser.getNumber("id");
 	const username = parser.getString("username");
-	const profilePicture = parser.getString("icons", "medium");
+	const profilePicture = parser.getString("picture", "medium");
 	const friends = parser.getArray("friends").map((friend) => {
 		return new ObjectParser(friend).getString("username");
 	});
@@ -59,11 +59,18 @@ class ObjectParser {
 
 	has(...path: string[]): boolean;
 	get(...path: string[]): unknown;
+	isString(...path: string[]): boolean;
 	getString(...path: string[]): string;
+	isNumber(...path: string[]): boolean;
 	getNumber(...path: string[]): number;
+	isBoolean(...path: string[]): boolean;
 	getBoolean(...path: string[]): boolean;
+	isBigInt(...path: string[]): boolean;
 	getBigInt(...path: string[]): bigint;
+	// Note: 'null' is not considered an object.
+	isObject(...path: string[]): boolean;
 	getObject(...path: string[]): object;
+	isArray(...path: string[]): boolean;
 	getArray(...path: string[]): unknown[];
 	isNull(...path: string[]): boolean;
 	isUndefined(...path: string[]): boolean;

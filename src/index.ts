@@ -39,12 +39,20 @@ export class ObjectParser {
 		return value;
 	}
 
+	public isString(...path: string[]): boolean {
+		return typeof this.get(...path) === "string";
+	}
+
 	public getString(...path: string[]): string {
 		const value = this.get(...path);
 		if (typeof value !== "string") {
 			throw new Error(`Value in path ${path.join(".")} is not a string`);
 		}
 		return value;
+	}
+
+	public isNumber(...path: string[]): boolean {
+		return typeof this.get(...path) === "number";
 	}
 
 	public getNumber(...path: string[]): number {
@@ -55,12 +63,20 @@ export class ObjectParser {
 		return value;
 	}
 
+	public isBoolean(...path: string[]): boolean {
+		return typeof this.get(...path) === "boolean";
+	}
+
 	public getBoolean(...path: string[]): boolean {
 		const value = this.get(...path);
 		if (typeof value !== "boolean") {
 			throw new Error(`Value in path ${path.join(".")} is not a boolean`);
 		}
 		return value;
+	}
+
+	public isBigInt(...path: string[]): boolean {
+		return typeof this.get(...path) === "bigint";
 	}
 
 	public getBigInt(...path: string[]): bigint {
@@ -71,12 +87,21 @@ export class ObjectParser {
 		return value;
 	}
 
+	public isObject(...path: string[]): boolean {
+		const value = this.get(...path);
+		return typeof value === "object" && value !== null;
+	}
+
 	public getObject(...path: string[]): object {
 		const value = this.get(...path);
 		if (typeof value !== "object" || value === null) {
 			throw new Error(`Value in path ${path.join(".")} is not a object`);
 		}
 		return value;
+	}
+
+	public isArray(...path: string[]): boolean {
+		return Array.isArray(this.get(...path));
 	}
 
 	public getArray(...path: string[]): unknown[] {
